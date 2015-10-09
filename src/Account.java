@@ -56,7 +56,7 @@ public class Account {
                   double balance = accounts.get(name) - withdrawNum;
                   System.out.println("You've withdrawn $" + withdrawNum);
                  System.out.println("Your new balance is $" + balance);
-                 //accounts.replace(name, balance, name, balance);
+                 accounts.put(name, balance);
             } else if (withdrawNum > accounts.get(name)) {
                 throw new Exception("You don't have that much money");
             }
