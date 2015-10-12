@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class Account {
     HashMap< String , Double> accounts = new HashMap();
     String name;
-    double balance;
     void login() throws Exception {
-
         System.out.println("Welcome to the bank. Please enter your name");
         Scanner scanner = new Scanner(System.in);
         String accountName = scanner.nextLine();
-        name = accountName;
+         name = accountName;
+        accounts.put("John", 300.0);
+        accounts.put("Zach", 500.0);
 
         if (!accounts.containsKey(accountName)) {
             System.out.println("Account not found! Do you want to make a new account? y/n");
@@ -21,24 +21,23 @@ public class Account {
             if (s.equals("y")) {
                 System.out.println("How much are you depositing?");
                 s = ATM.nextLine();
-                balance = Double.parseDouble(s);
+                double balance = Double.parseDouble(s);
                 accounts.put(accountName, balance);
             } else if (s.equals("n")) {
                 System.out.println("K, well...bye!");
                 System.exit(0);
-
             } else if (accountName.equals("")) {
                 throw new Exception("Invalid entry");
             }
         }
     }
-
     void mainMenu() throws Exception {
-        System.out.println("Welcome, " + accounts.get(name) + ". What would you like to do?");
+        System.out.println("Welcome, " + name + ". What would you like to do?");
         System.out.println("[1] Check balance");
         System.out.println("[2] Withdraw from account");
         System.out.println("[3] Exit");
         System.out.println("[4] Delete account");
+        //System.out.println("[5] Spy on everyone's accounts?");
         String option = ATM.nextLine();  //stores input as a string
         int optionNum = Integer.valueOf(option); //converts string into an int
 
@@ -69,7 +68,12 @@ public class Account {
                  accounts.remove(name);
                  System.exit(0);
 
-             }
+             } //else if (optionNum == 5){
+                 //System.out.println(accounts.get("John"));
+                 //System.out.println(accounts.get("Zach"));
+                 //System.out.println(accounts.get(name));
+             //}
+
     }
 
 }
