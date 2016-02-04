@@ -14,8 +14,8 @@ public class ATM {
     public static void main(String[] args) throws Exception {
         account = new Account();
         account.login();
-        while (true) {
-            account.mainMenu();
+        while (true){
+        account.mainMenu();
         }
     }
 
